@@ -29,6 +29,5 @@ public class CategoryController {
         return kategoriRepository.save(category);
     }
 
-    // Eventuellt lägg till andra metoder för att uppfylla uppgiftens krav
 
 }

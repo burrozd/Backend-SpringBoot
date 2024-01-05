@@ -27,6 +27,5 @@ public class SecurityConfig {
         return customUserDetailsService;
     }
 
-    // Lägg till andra konfigurationsinställningar här
 
 }

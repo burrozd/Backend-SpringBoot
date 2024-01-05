@@ -15,7 +15,6 @@ public class User {
     private String username;
     private String password;
 
-    // Konstruktor, getter och setter samt eventuella andra nödvändiga metoder
 
     public User() {
         // Default konstruktor
@@ -26,7 +25,6 @@ public class User {
         this.password = password;
     }
 
-    // Getter och setter
 
     public Long getId() {
         return id;

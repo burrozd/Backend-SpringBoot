@@ -1,12 +1,11 @@
 package com.SbLabb.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Category {
@@ -15,12 +14,18 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String namn;
+    @NotBlank(message = "Category name is required")
+    @Size(max = 255, message = "Category name must be at most 255 characters long")
+    private String name;
 
-    @OneToMany(mappedBy = "kategori")
-    private List<Place> platser;
 
-    // Getter och setter samt eventuella andra nödvändiga metoder
+    public Category() {
+    }
+
+    public Category(String name) {
+        this.name = name;
+    }
+
 
     public Long getId() {
         return id;
@@ -30,19 +35,19 @@ public class Category {
         this.id = id;
     }
 
-    public String getNamn() {
-        return namn;
+    public String getName() {
+        return name;
     }
 
-    public void setNamn(String namn) {
-        this.namn = namn;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public List<Place> getPlatser() {
-        return platser;
-    }
-
-    public void setPlatser(List<Place> platser) {
-        this.platser = platser;
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
