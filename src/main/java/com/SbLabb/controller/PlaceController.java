@@ -1,7 +1,7 @@
 package com.SbLabb.controller;
 
-import com.SbLabb.model.Plats;
-import com.SbLabb.repository.PlatsRepository;
+import com.SbLabb.model.Place;
+import com.SbLabb.repository.PlaceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,26 +9,25 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/platser")
-public class PlatsController {
+public class PlaceController {
 
     @Autowired
-    private PlatsRepository platsRepository;
+    private PlaceRepository platsRepository;
 
     @GetMapping
-    public List<Plats> getAllPlatser() {
+    public List<Place> getAllPlatser() {
         return platsRepository.findAll();
     }
 
     @GetMapping("/{id}")
-    public Plats getPlatsById(@PathVariable Long id) {
+    public Place getPlatsById(@PathVariable Long id) {
         return platsRepository.findById(id).orElse(null);
     }
 
     @PostMapping
-    public Plats createPlats(@RequestBody Plats plats) {
+    public Place createPlats(@RequestBody Place plats) {
         return platsRepository.save(plats);
     }
 
-    // Eventuellt lägg till andra metoder för att uppfylla uppgiftens krav
 
 }

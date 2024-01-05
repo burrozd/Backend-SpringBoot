@@ -1,10 +1,9 @@
 package com.SbLabb.model;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
-public class Plats {
+public class Place {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,10 +13,8 @@ public class Plats {
 
     @ManyToOne
     @JoinColumn(name = "kategori_id")
-    private Kategori kategori;
+    private Category category;
 
-    // Andra attribut och relationer enligt uppgiften
 
-    // Getter och setter-metoder
 
 }

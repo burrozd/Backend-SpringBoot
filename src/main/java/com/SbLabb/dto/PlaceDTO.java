@@ -1,4 +1,4 @@
 package com.SbLabb.dto;
 
-public class PlatsDTO {
+public class PlaceDTO {
 }
